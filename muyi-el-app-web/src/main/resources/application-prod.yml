@@ -1,0 +1,112 @@
+server:
+  port: 7001
+  compression:
+    enabled: true
+    mime-types:
+      - application/json
+      - application/xml
+      - application/javascript
+      - text/html
+      - text/xml
+      - text/plain
+      - text/css
+    min-response-size: 2048
+  tomcat:
+    max-threads: 1000
+    max-connections: 10000
+
+spring:
+  redis:
+    enable: true
+    url: redis://47.98.175.227:6379
+    timeout: 2000
+    redisson:
+      file: classpath:redission/redisson-prod.yml
+
+  shardingsphere:
+    datasource:
+      names: master
+      master:
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://47.102.204.221:3306/muyi-el-app?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8
+        username: root
+        password: 123456
+        initialSize: 1
+        minIdle: 2
+        maxActive: 10
+        maxWait: 3000
+        timeBetweenEvictionRunsMillis: 7200000
+        minEvictableIdleTimeMillis: 7200000
+        testWhileIdle: true
+    props:
+      sql:
+        show: true
+
+dubbo:
+  metadata-report:
+    address: zookeeper://47.98.175.227:2181
+  config-center:
+    address: zookeeper://47.98.175.227:2181
+  application:
+    name: muyi-el-app-provider
+    qos-enable: false
+  registry:
+    address: zookeeper://47.98.175.227:2181
+  protocol:
+    name: dubbo
+    port: 30705
+    threads: 1000
+  scan:
+    basePackages: com.muyi
+  consumer:
+    version: 1.0.0
+    check: false
+    timeout: 120000
+    retries: 0
+  provider:
+    version: 1.0.0
+    timeout: 120000
+    retries: 0
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.muyi.core.dao
+
+nacos:
+  config:
+    endpoint: acm.aliyun.com
+    namespace: addb4001-d0bb-4e99-a24b-4f6f5fd6638a
+    access-key: LTAI4G89VgwyPm65W9fLgmjM
+    secret-key: tgZqCdg2ZkJY8g8AcjRApOgRV5fzR3
+
+
+elasticJob:
+  zk:
+    serverLists: 47.98.175.227:2181
+    namespace: muyi-el-app
+
+jetcache:
+  statIntervalMinutes: 60
+  areaInCacheName: false
+  local:
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
+      limit: 1000
+      defaultExpireInMillis: 10000
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson
+      valueEncoder: java
+      valueDecoder: java
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 47.98.175.227
+      port: 6379
+      password: 123456

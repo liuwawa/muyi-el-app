@@ -4,9 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.muyi</groupId>
+        <artifactId>muyi-base-dependencies</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <packaging>jar</packaging>
+
     <groupId>com.muyi</groupId>
     <artifactId>muyi-el-app</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>muyi-el-app-dependency</module>
+        <module>muyi-el-app-client</module>
+        <module>muyi-el-app-common</module>
+        <module>muyi-el-app-core</module>
+        <module>muyi-el-app-task</module>
+        <module>muyi-el-app-web</module>
+    </modules>
 
 
 </project>
