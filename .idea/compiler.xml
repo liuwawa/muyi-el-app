@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="muyi-el-app-client" />
-        <module name="muyi-el-app-core" />
-        <module name="muyi-el-app-common" />
         <module name="muyi-el-app-task" />
-        <module name="muyi-el-app" />
-        <module name="muyi-el-app-dependency" />
         <module name="muyi-el-app-web" />
+        <module name="muyi-el-app-common" />
+        <module name="muyi-el-app-core" />
+        <module name="muyi-el-app-dependency" />
+        <module name="muyi-el-app-client" />
+        <module name="muyi-el-app" />
       </profile>
     </annotationProcessing>
   </component>
