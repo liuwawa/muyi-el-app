@@ -29,9 +29,9 @@ spring:
       master:
         driver-class-name: com.mysql.jdbc.Driver
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://47.102.204.221:3306/muyi-el-app?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8
-        username: root
-        password: 123456
+        url: jdbc:mysql://rm-uf6k897a0s74953j00o.mysql.rds.aliyuncs.com:3306/muyi-el-test-app?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8
+        username: muyi_test
+        password: qUO9Zet&0eRcoZq1l
         initialSize: 1
         minIdle: 2
         maxActive: 10
